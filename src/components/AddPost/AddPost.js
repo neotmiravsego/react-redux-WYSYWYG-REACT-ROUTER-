@@ -12,7 +12,7 @@ class AddPost extends React.Component {
             title: '',
             content: '',
             author: '',
-            date: new Date().toLocaleDateString(),
+            date: '',
             errors: {
                 title: false,
                 content: false,
