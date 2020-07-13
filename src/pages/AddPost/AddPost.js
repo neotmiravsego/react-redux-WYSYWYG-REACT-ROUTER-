@@ -21,7 +21,6 @@ class AddPost extends React.Component {
         };
     }
 
-
     changeInput = event => {
         event.persist();
         this.setState(prev => ({
@@ -30,12 +29,14 @@ class AddPost extends React.Component {
             }
         }))
     }
+
     handleCkeditorState = (event, editor) => {
         let data = editor.getData();
         this.setState({
             content: data
         })
     }
+
     validate = (myPosts) => {
         const finded = this.props.myPosts.find(el => el.title === this.state.title)
         if (finded) {
@@ -44,15 +45,17 @@ class AddPost extends React.Component {
                     title: true
                 }
             })
-
             return false;
         }
-
         return true;
     }
+
     submitHandler = (event, errors) => {
+
         event.preventDefault();
+
         const { title, content, author } = this.state
+
         const newPost = {
             content, author, title, id: Date.now().toString(), date: new Date().toLocaleDateString(),
         }
@@ -112,9 +115,11 @@ class AddPost extends React.Component {
         )
     }
 }
+
 const mapDispathToProps = {
     createPost
 }
+
 const mapStateToProps = state => {
     return {
         myPosts: state.posts.posts

@@ -5,12 +5,19 @@ import { withRouter } from "react-router";
 import { Helmet } from 'react-helmet'
 
 const PostPage = (props) => {
+
     const [post, setPost] = useState({})
+
     useEffect(() => {
+
         const finded = props.myPosts.find(el => {
+
             return el.id === props.match.params.id
+
         })
+
         setPost(finded);
+        
     }, [])
     return (
         <div>
