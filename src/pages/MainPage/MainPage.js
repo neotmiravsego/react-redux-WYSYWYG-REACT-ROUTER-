@@ -1,6 +1,7 @@
 import React from 'react'
-import PostList from '../PostList/PostList'
+import PostList from '../../components/PostList/PostList'
 import { Helmet } from 'react-helmet'
+
 export default function MainPage() {
     return (
         <div className="container">

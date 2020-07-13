@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
-import MainPage from './components/MainPage/MainPage'
+import MainPage from './pages/MainPage/MainPage'
 import AddPost from './pages/AddPost/AddPost'
 import PostPage from './pages/PostPage/PostPage'
 function App() {
