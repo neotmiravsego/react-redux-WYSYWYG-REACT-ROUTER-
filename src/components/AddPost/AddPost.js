@@ -54,7 +54,7 @@ class AddPost extends React.Component {
         event.preventDefault();
         const { title, content, author } = this.state
         const newPost = {
-            content, author, title, id: Date.now().toString()
+            content, author, title, id: Date.now().toString(), date: new Date().toLocaleDateString(),
         }
 
         if (!this.validate()) return;

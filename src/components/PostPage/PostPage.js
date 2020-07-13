@@ -23,7 +23,7 @@ const PostPage = (props) => {
                 <div className="content-wrap">
                     <p className="content-post" dangerouslySetInnerHTML={{ __html: post.content }} ></p>
                     <p className="author-post" >" Автор: {post.author}"</p>
-                    <p>Дата создания: {new Date().toLocaleDateString()}</p>
+                    <p>Дата создания: {post.date}</p>
                 </div>
             </div >
         </div>

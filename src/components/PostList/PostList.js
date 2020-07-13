@@ -17,7 +17,7 @@ const Posts = ({ myPosts }) => {
                                 <h2 className="title-post">{post.title}</h2>
                                 <div className="wrap-bottom__content">
                                     <p>Автор: {post.author}</p>
-                                    <p>{new Date().toLocaleDateString()}</p>
+                                    <p>{post.date}</p>
                                 </div>
                             </Link>
                         </li>
