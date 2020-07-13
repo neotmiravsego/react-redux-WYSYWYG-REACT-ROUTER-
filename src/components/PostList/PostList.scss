@@ -1,0 +1,34 @@
+.not-post {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+}
+.post-list {
+    max-width: 500px;
+    width:100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .post-list__item {
+    margin-bottom: 20px;
+    cursor: pointer;
+    display: flex;
+  
+  }
+  .post-list__item a {
+    width:100%;
+    padding: 10px 15px;
+    border: 1px solid gray;
+  }
+  .title-post {
+    text-align: center;
+  }
+  .content-post {
+ padding: 10px;
+  }
+  .wrap-bottom__content {
+    display:flex;
+    justify-content: space-between;
+  }
