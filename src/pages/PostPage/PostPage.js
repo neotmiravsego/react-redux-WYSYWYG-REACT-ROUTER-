@@ -17,7 +17,7 @@ const PostPage = (props) => {
         })
 
         setPost(finded);
-        
+
     }, [])
     return (
         <div>
@@ -28,7 +28,10 @@ const PostPage = (props) => {
             <div className="post-list">
                 <h1>{post.title}</h1>
                 <div className="content-wrap">
-                    <p className="content-post" dangerouslySetInnerHTML={{ __html: post.content }} ></p>
+                    <div>
+                        <p className="content-title">Контент новости:</p>
+                        <p className="content-post" dangerouslySetInnerHTML={{ __html: post.content }} ></p>
+                    </div>
                     <p className="author-post" >" Автор: {post.author}"</p>
                     <p>Дата создания: {post.date}</p>
                 </div>
