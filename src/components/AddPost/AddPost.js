@@ -36,12 +36,29 @@ class AddPost extends React.Component {
             content: data
         })
     }
+    validate = (myPosts) => {
+        const finded = this.props.myPosts.find(el => el.title === this.state.title)
+        if (finded) {
+            this.setState({
+                errors: {
+                    title: true
+                }
+            })
+
+            return false;
+        }
+
+        return true;
+    }
     submitHandler = (event, errors) => {
         event.preventDefault();
         const { title, content, author } = this.state
         const newPost = {
             content, author, title, id: Date.now().toString()
         }
+
+        if (!this.validate()) return;
+
         if (content.length <= 0) {
             this.setState({
                 errors: {
@@ -51,11 +68,12 @@ class AddPost extends React.Component {
         } else {
             this.props.createPost(newPost)
             this.props.history.push('/')
+            this.validate()
         }
     }
 
     render() {
-        const errors = this.state.errors
+        const { errors } = this.state;
         return (
             <div>
                 <Helmet>
@@ -65,6 +83,9 @@ class AddPost extends React.Component {
                 <form className="form-container" onSubmit={this.submitHandler}>
                     <div className="form-group">
                         <label className="label-input">Заголовок</label>
+                        {errors.title && (
+                            <p className="error-title">Пост с таким заголовком уже существует</p>
+                        )}
                         <input placeholder="Заголовок поста" required name="title" value={this.state.title} onChange={this.changeInput} ></input>
                     </div>
                     <div className="form-group form-wisywig">
@@ -94,4 +115,9 @@ class AddPost extends React.Component {
 const mapDispathToProps = {
     createPost
 }
-export default connect(null, mapDispathToProps)(AddPost)
+const mapStateToProps = state => {
+    return {
+        myPosts: state.posts.posts
+    }
+}
+export default connect(mapStateToProps, mapDispathToProps)(AddPost)
